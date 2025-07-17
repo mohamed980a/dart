@@ -151,12 +151,9 @@ void createAccount() {
   print("Enter your name: ");
   accountName = stdin.readLineSync()!;
 
-  while (true) {
     print("Enter account number: ");
       accountNumber = int.parse(stdin.readLineSync()!);
-      break;
 
-  }
 
   do {
     print("Enter account type (savings/checking): ");
