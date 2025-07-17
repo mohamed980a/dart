@@ -1,6 +1,38 @@
 import 'dart:io';
+
+class Car{
+  String? name;
+  String? color;
+  int? year;
+  double? price;
+
+  // Constructor
+  Car({this.name, this.color, this.year, this.price});
+
+  void displayInfo() {
+    print("Car Name: $name");
+    print("Car Color: $color");
+    print("Car Year: $year");
+    print("Car Price: \$${price?.toStringAsFixed(2)}");
+  }
+}
+
 int? x1;
 void main() {
+  Car car1 = Car()
+    ..name = "Toyota"
+    ..color = "Red"
+    ..year = 2020
+    ..price = 20000.0
+ ..displayInfo();
+  print("-----------------");
+  Car car2 = Car()
+    ..name = "Honda"
+    ..color = "Blue"
+    ..year = 2021
+    ..price = 22000.0
+  ..displayInfo();
+
   x1= 20;
 //   int age = 15;
 //   int x = 20;
@@ -162,80 +194,80 @@ void main() {
   // }
   // print(total);
 
-  for (int i = 0; i <=10; i++) {
-    print( "i is $i");
-  }
-  print("-----------------");
-  for (int i = 10; i >0; i--) {
-    print( "i is $i");
-  }
-  print("-----------------");
-  for( int i = 0; i <= 10; i+=2) {
-    print("i is $i");
-
-  }
-  print("-----------------");
-  for( int i = 1; i <= 10; i+=2) {
-    print("i is $i");
-
-  }
-  print("----------------- Counting -----------------");
-  for (int i = 0; i <= 10; i++) {
-    for(int j = 0; j <= 10; j++) {
-      print("i is $i, j is $j");
-    }
-  }
-  print("----------------- Multiplication Table -----------------");
-
-  multiplicationTable();
-
-  print("----------------- While Loop -----------------");
-  int i = 0;
-  while(i<=10) {
-    print("i is $i");
-    i++;
-  }
-  print("----------------- Do While Loop -----------------");
-  int j = 0;
-  do {
-    print("j is $j");
-    j++;
-  } while(j <= 10);
-
-  print("----------------- While Loop with Multiplication Table -----------------");
-  int h = 0,
-      k = 0;
-  while(h<12){
-    while(k<12){
-      print("h is $h,   k is $k,   h*k is  $h * $k  ${h*k}");
-      k++;
-    }
-    h++;
-    k = 0; // Reset k for the next iteration of h
-  }
-  print("----------------- Do While Loop with Multiplication Table -----------------");
-  int w = 0,
-      z = 0;
-  while(w<12) {
-    do {
-      print("w is $w,   z is $z,   w*z is  $w * $z  ${w*z}");
-      z++;
-    } while(z<12);
-    w++;
-    z = 0; // Reset z for the next iteration of w
-  }
-
-  // int cc = calc(10, 30);
-  print("The result of calc is ${calc(10, 30)}");
-}
-
-void multiplicationTable() {
-  for (int i = 0; i <= 12; i++) {
-    for(int j = 0; j <= 12; j++) {
-     print("i is $i,   j is $j,   i*j is  $j * $i  ${i*j}");
-    }
-    print("----------------- ----------------- -----------------");
-  }
+//   for (int i = 0; i <=10; i++) {
+//     print( "i is $i");
+//   }
+//   print("-----------------");
+//   for (int i = 10; i >0; i--) {
+//     print( "i is $i");
+//   }
+//   print("-----------------");
+//   for( int i = 0; i <= 10; i+=2) {
+//     print("i is $i");
+//
+//   }
+//   print("-----------------");
+//   for( int i = 1; i <= 10; i+=2) {
+//     print("i is $i");
+//
+//   }
+//   print("----------------- Counting -----------------");
+//   for (int i = 0; i <= 10; i++) {
+//     for(int j = 0; j <= 10; j++) {
+//       print("i is $i, j is $j");
+//     }
+//   }
+//   print("----------------- Multiplication Table -----------------");
+//
+//   multiplicationTable();
+//
+//   print("----------------- While Loop -----------------");
+//   int i = 0;
+//   while(i<=10) {
+//     print("i is $i");
+//     i++;
+//   }
+//   print("----------------- Do While Loop -----------------");
+//   int j = 0;
+//   do {
+//     print("j is $j");
+//     j++;
+//   } while(j <= 10);
+//
+//   print("----------------- While Loop with Multiplication Table -----------------");
+//   int h = 0,
+//       k = 0;
+//   while(h<12){
+//     while(k<12){
+//       print("h is $h,   k is $k,   h*k is  $h * $k  ${h*k}");
+//       k++;
+//     }
+//     h++;
+//     k = 0; // Reset k for the next iteration of h
+//   }
+//   print("----------------- Do While Loop with Multiplication Table -----------------");
+//   int w = 0,
+//       z = 0;
+//   while(w<12) {
+//     do {
+//       print("w is $w,   z is $z,   w*z is  $w * $z  ${w*z}");
+//       z++;
+//     } while(z<12);
+//     w++;
+//     z = 0; // Reset z for the next iteration of w
+//   }
+//
+//   // int cc = calc(10, 30);
+//   print("The result of calc is ${calc(10, 30)}");
+// }
+//
+// void multiplicationTable() {
+//   for (int i = 0; i <= 12; i++) {
+//     for(int j = 0; j <= 12; j++) {
+//      print("i is $i,   j is $j,   i*j is  $j * $i  ${i*j}");
+//     }
+//     print("----------------- ----------------- -----------------");
+//   }
 }
 int calc(int x, int y) => x + y;
 
