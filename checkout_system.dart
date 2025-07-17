@@ -1,17 +1,29 @@
 import 'dart:io';
 
-// Product structure
-typedef Product = ({int id, String name, double price});
+// Individual product variables - Product 1 (Keyboard)
+int product1Id = 1;
+String product1Name = 'Keyboard';
+double product1Price = 100.0;
 
-// Customer info structure
-typedef CustomerInfo = ({String name, String phone});
+// Individual product variables - Product 2 (Mouse)
+int product2Id = 2;
+String product2Name = 'Mouse';
+double product2Price = 50.0;
 
-// Individual product variables instead of list
-Product product1 = (id: 1, name: 'Keyboard', price: 100.0);
-Product product2 = (id: 2, name: 'Mouse', price: 50.0);
-Product product3 = (id: 3, name: 'Monitor', price: 300.0);
-Product product4 = (id: 4, name: 'USB Cable', price: 20.0);
-Product product5 = (id: 5, name: 'Headphones', price: 150.0);
+// Individual product variables - Product 3 (Monitor)
+int product3Id = 3;
+String product3Name = 'Monitor';
+double product3Price = 300.0;
+
+// Individual product variables - Product 4 (USB Cable)
+int product4Id = 4;
+String product4Name = 'USB Cable';
+double product4Price = 20.0;
+
+// Individual product variables - Product 5 (Headphones)
+int product5Id = 5;
+String product5Name = 'Headphones';
+double product5Price = 150.0;
 
 // Cart variables - individual quantities for each product
 int cartQuantity1 = 0; // Keyboard quantity
@@ -20,17 +32,18 @@ int cartQuantity3 = 0; // Monitor quantity
 int cartQuantity4 = 0; // USB Cable quantity
 int cartQuantity5 = 0; // Headphones quantity
 
-// Customer info
-CustomerInfo? customerInfo;
+// Customer info variables
+String customerName = '';
+String customerPhone = '';
 
 void showMenu() {
   print('\nWelcome to the store!');
   print('Available products:');
-  print('${product1.id}. ${product1.name} - \$${product1.price.toStringAsFixed(0)}');
-  print('${product2.id}. ${product2.name} - \$${product2.price.toStringAsFixed(0)}');
-  print('${product3.id}. ${product3.name} - \$${product3.price.toStringAsFixed(0)}');
-  print('${product4.id}. ${product4.name} - \$${product4.price.toStringAsFixed(0)}');
-  print('${product5.id}. ${product5.name} - \$${product5.price.toStringAsFixed(0)}');
+  print('$product1Id. $product1Name - \$${product1Price.toStringAsFixed(0)}');
+  print('$product2Id. $product2Name - \$${product2Price.toStringAsFixed(0)}');
+  print('$product3Id. $product3Name - \$${product3Price.toStringAsFixed(0)}');
+  print('$product4Id. $product4Name - \$${product4Price.toStringAsFixed(0)}');
+  print('$product5Id. $product5Name - \$${product5Price.toStringAsFixed(0)}');
 }
 
 void addToCart() {
@@ -85,43 +98,41 @@ void addToCart() {
     String productName = '';
     if (productNumber == 1) {
       cartQuantity1 += quantity;
-      productName = product1.name;
+      productName = product1Name;
     } else if (productNumber == 2) {
       cartQuantity2 += quantity;
-      productName = product2.name;
+      productName = product2Name;
     } else if (productNumber == 3) {
       cartQuantity3 += quantity;
-      productName = product3.name;
+      productName = product3Name;
     } else if (productNumber == 4) {
       cartQuantity4 += quantity;
-      productName = product4.name;
+      productName = product4Name;
     } else if (productNumber == 5) {
       cartQuantity5 += quantity;
-      productName = product5.name;
+      productName = product5Name;
     }
     
     print('Added ${quantity}x $productName to cart.');
   }
 }
 
-CustomerInfo getCustomerInfo() {
+void getCustomerInfo() {
   stdout.write('\nPlease enter your name: ');
-  String? name = stdin.readLineSync() ?? '';
+  customerName = stdin.readLineSync() ?? '';
   
   stdout.write('Please enter your phone number: ');
-  String? phone = stdin.readLineSync() ?? '';
-  
-  return (name: name, phone: phone);
+  customerPhone = stdin.readLineSync() ?? '';
 }
 
 double calculateSubtotal() {
   double total = 0.0;
   
-  total += product1.price * cartQuantity1;
-  total += product2.price * cartQuantity2;
-  total += product3.price * cartQuantity3;
-  total += product4.price * cartQuantity4;
-  total += product5.price * cartQuantity5;
+  total += product1Price * cartQuantity1;
+  total += product2Price * cartQuantity2;
+  total += product3Price * cartQuantity3;
+  total += product4Price * cartQuantity4;
+  total += product5Price * cartQuantity5;
   
   return total;
 }
@@ -195,19 +206,19 @@ bool isCartEmpty() {
 void printCartSummary() {
   print('\nYour cart:');
   if (cartQuantity1 > 0) {
-    print('${cartQuantity1}x ${product1.name} - \$${(product1.price * cartQuantity1).toStringAsFixed(2)}');
+    print('${cartQuantity1}x $product1Name - \$${(product1Price * cartQuantity1).toStringAsFixed(2)}');
   }
   if (cartQuantity2 > 0) {
-    print('${cartQuantity2}x ${product2.name} - \$${(product2.price * cartQuantity2).toStringAsFixed(2)}');
+    print('${cartQuantity2}x $product2Name - \$${(product2Price * cartQuantity2).toStringAsFixed(2)}');
   }
   if (cartQuantity3 > 0) {
-    print('${cartQuantity3}x ${product3.name} - \$${(product3.price * cartQuantity3).toStringAsFixed(2)}');
+    print('${cartQuantity3}x $product3Name - \$${(product3Price * cartQuantity3).toStringAsFixed(2)}');
   }
   if (cartQuantity4 > 0) {
-    print('${cartQuantity4}x ${product4.name} - \$${(product4.price * cartQuantity4).toStringAsFixed(2)}');
+    print('${cartQuantity4}x $product4Name - \$${(product4Price * cartQuantity4).toStringAsFixed(2)}');
   }
   if (cartQuantity5 > 0) {
-    print('${cartQuantity5}x ${product5.name} - \$${(product5.price * cartQuantity5).toStringAsFixed(2)}');
+    print('${cartQuantity5}x $product5Name - \$${(product5Price * cartQuantity5).toStringAsFixed(2)}');
   }
 }
 
@@ -219,7 +230,7 @@ void processCheckout() {
   
   printCartSummary();
   
-  customerInfo = getCustomerInfo();
+  getCustomerInfo();
   
   double subtotal = calculateSubtotal();
   double tax = calculateTax(subtotal);
@@ -241,7 +252,7 @@ void processCheckout() {
   
   print('\n----------------------------');
   print('Total amount to pay: \$${total.toStringAsFixed(2)}');
-  print('\nThank you for shopping with us, ${customerInfo?.name}!');
+  print('\nThank you for shopping with us, $customerName!');
   print('-----------------------------------------');
 }
 
@@ -251,7 +262,8 @@ void resetForNextCustomer() {
   cartQuantity3 = 0;
   cartQuantity4 = 0;
   cartQuantity5 = 0;
-  customerInfo = null;
+  customerName = '';
+  customerPhone = '';
 }
 
 void runCheckoutSystem() {
